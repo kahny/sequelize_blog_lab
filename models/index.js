@@ -10,44 +10,43 @@ var fs        = require('fs')
 fs
   .readdirSync(__dirname)
   .filter(function(file) {
-    return (file.indexOf('.') !== 0) && (file !== 'index.js')
+    return (file.indexOf('.') !== 0) && (file !== 'index.js');
   })
   .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, file))
-    db[model.name] = model
-  })
+    var model = sequelize.import(path.join(__dirname, file));
+    db[model.name] = model;
+  });
 
 Object.keys(db).forEach(function(modelName) {
   if ('associate' in db[modelName]) {
-    db[modelName].associate(db)
+    db[modelName].associate(db);
   }
-})
+});
 
 // console.log(db)
-db.post.hasMany(db.author); //connecting foreign key
+//connecting foreign key
+db.author.hasMany(db.post);
+db.post.belongsTo(db.author);
 
-
-// //testing author 
-// db.author.create({name: "Connie"}).success(function(author){
+// testing author 
+// db.author.create({username: "JRRTolkien"}).success(function(author){
 //   console.log(author);
 // })
 
-// //testing post 
-// db.post.create({title:"Today's day", content:"about my day.."})
+//testing post 
+// db.post.create({title:"Today's a day", content:"about my day.."})
 
 
-//add from routes to place holders 
-db.post.create({title:"Never ending story ", content:"la"})
-  .success(function(post){
-    db.author.find(1).success(function(author){
-      author.setPosts([post])     //setposts sequelize method
-      .success(function(author) {
-        console.log(author)
-      });
-    });
-  });
-
-
+// addding a post and linking it to an id 
+// db.post.create({title:"Today's a day", content:"About my day.."})
+//   .success(function (post){
+//     db.author.find(1).success(function (author){
+//       author.setPosts([post])     //setposts sequelize method
+//       .success(function(author) {
+//         console.log(author);
+//       })
+//     });
+//   });
 
 
 

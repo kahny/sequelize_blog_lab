@@ -4,9 +4,19 @@
 	<title></title>
 </head>
 <body>
- TEST - index.ejs
-     <% authors.forEach(function(author) {%>
-      <%= author.dataValues.name %>
+	<ul >
+        
+        <li><a href="/newposts">New Post</a></li>
+    </ul>
+ 
+     <% posts.forEach(function(post) { %>
+     	<h3><%= post.title %></h3>
+     	<p><%= post.content %></p>
+     	<p><em><%= post.createdAt %></em></p>
+     	<p>Post by: <%= post.authorId %></p>
+
     <% }) %>
+
 </body>
 </html>
+

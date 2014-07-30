@@ -10,7 +10,8 @@ module.exports = {
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE,
       
-      name: DataTypes.STRING,      
+      username: DataTypes.STRING 
+        
     })
     .complete(done)    
   },

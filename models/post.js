@@ -11,3 +11,6 @@ function Post(sequelize, DataTypes){
 };
 
 module.exports = Post;
+
+
+// this has an id field 

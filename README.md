@@ -1,4 +1,4 @@
-#Blog Lab
+	#Blog Lab
 
 In this lab we will be making a simple blog platform. In many ways this app will be similar to the Daily Planet app. Feel free to modify it if you wish.
 

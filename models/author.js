@@ -1,7 +1,10 @@
 function Author(sequelize, DataTypes){
   return sequelize.define('author', {
-    name: DataTypes.STRING
+    username: DataTypes.STRING
   });
 };	
 
 module.exports = Author;
+
+
+// this has an id field 
