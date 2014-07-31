@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get("/blog", function(req,res){
 	db.post.findAll().success(function(posts){
-    res.render('index', {posts: posts})
+    res.render('index', {posts: posts})  //the posts key is taco, must be referenced properly in ejs file 
   })
 })
 
